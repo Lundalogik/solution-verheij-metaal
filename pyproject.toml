@@ -1,0 +1,98 @@
+[build-system]
+requires      = ['poetry-core>=1.3']
+build-backend = 'poetry.core.masonry.api'
+
+[tool.metadata]
+display_name  = 'Verheij Metaal'
+package_name  = 'solution-verheij-metaal'
+lib_name      = 'solution_verheij_metaal'
+
+[tool.poetry]
+name        = 'solution-verheij-metaal'
+version     = '0.1.0'
+description = 'Lime CRM solution'
+authors     = ['Author <author@lime.tech>']
+
+[[tool.poetry.source]]
+name = 'lime'
+url  = 'https://pypi.lime.tech/simple/'
+
+[tool.poetry.plugins.'lime_plugins']
+'solution-verheij-metaal' = 'solution_verheij_metaal'
+
+[tool.poetry.dependencies]
+python = '^3.7'
+lime-crm = '^2.526.0'
+limepkg-status-flow = '^2.3.1'
+addon-infotiles = '^4.9.2'
+limepkg-erp-connector = '^9.2.0'
+limepkg-option-visualizer = '^2.0.0'
+lime-bi = '^3.34.0'
+limepkg-filter-editor = '^1.0.5'
+limepkg-kpi = '^1.2.3'
+limepkg-gdpr = '^3.0.1'
+limepkg-base-solution-helpers = '^5.1.2'
+limepkg-document-templates = '^1.25.8'
+limepkg-basic-deal = '^1.1.5'
+addon-lime-automation = '^2.3.0'
+limepkg-basic-lead = '^2.0.0'
+lime-newsletter = '^3.0.0'
+limepkg-smh-translations = '^1.1.0'
+limepkg-newsletter-pro = '^1.0.2'
+
+[tool.poetry.group.dev.dependencies]
+autopep8 = '>=1'
+pytest = '>=6.2.3'
+flake8 = '^3.7'
+black = '^22.1.0'
+isort = '^5.0.0'
+mock = '>3'
+
+[tool.lime]
+[tool.lime.project]
+project_version = '1.204.1'
+project_type    = 'solution'
+project_imagebaker_pythonversion = '3.11'
+
+[[tool.lime.cloud]]
+env = 'production'
+id = '4a6d3627d2274830bd3ede4998dd0e18'
+
+project_target  = 'cloud'
+project_imagebaker_version = '2.38.1'
+project_autoupdate = true
+project_autoupdate_env = "production"
+project_create_limecloud_release = false
+
+[tool.pytest.ini_options]
+minversion = '6.0'
+norecursedirs = [
+    'venv',
+    '.venv',
+    'build',
+    'dist',
+    '.plugins',
+    'frontend',
+    '.env',
+    '.git',
+    '.github',
+    '.lime',
+    '.vscode'
+]
+faulthandler_timeout = 300
+
+[tool.black]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.venv
+  | frontend
+  | poetry.lock
+)/
+'''
+
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
