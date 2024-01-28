@@ -54,15 +54,15 @@ project_version = '1.204.1'
 project_type    = 'solution'
 project_imagebaker_pythonversion = '3.11'
 
-[[tool.lime.cloud]]
-env = 'production'
-id = '4a6d3627d2274830bd3ede4998dd0e18'
-
 project_target  = 'cloud'
 project_imagebaker_version = '2.38.1'
 project_autoupdate = true
 project_autoupdate_env = "production"
 project_create_limecloud_release = false
+
+[[tool.lime.cloud]]
+env = 'production'
+id = '4a6d3627d2274830bd3ede4998dd0e18'
 
 [tool.pytest.ini_options]
 minversion = '6.0'
